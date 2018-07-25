@@ -26,9 +26,18 @@ def validate_guess(colorstring, guess):
 	if colorstring == guess:
 		print "Correct!"
 	else:
-		print "Nope!"
+		print "You Lose"
 		print "The answer was: " + colorstring
 		print "You answered:   " + guess
+		y = 3
+		while y > 0:
+			LED.setColor('R')
+			Buzz.ChangeFrequency(25)
+			Buzz.start(1)
+			time.sleep(2)
+			y = y - 1	
+		Buzz.stop()
+		LED.noColor()
 		LED.destroy()
 		exit()
 	
